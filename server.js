@@ -47,20 +47,20 @@ app.get("/scrape", function(req, res) {
   axios.get("https://www.nytimes.com/section/technology").then(function(response) {
     
     var $ = cheerio.load(response.data);
-
+    
     
 
         let counter = 0;
-         var dataArr = [];
+         //var dataArr = [];
     $("article").each(function(i, element) {
-      
       var result = {};
-      
-      var storyDiv = $(this).children("div.story-body")
-      result.url = storyDiv.children("a").attr("href")
-      var metaDiv = storyDiv.children("a").children("div.story-meta")
-      result.headline = metaDiv.children("h2").text()
-      result.summary = metaDiv.children("p.summary").text();
+     console.log($(this).text())
+      // var storyDiv = $(this).children("div.story-body")
+      // console.log(element, "result");
+      // result.url = storyDiv.children("a").attr("href")
+      // var metaDiv = storyDiv.children("a").children("div.story-meta")
+      // result.headline = metaDiv.children("h2").text()
+      // result.summary = metaDiv.children("p.summary").text();
 
       
      if (result.headline && result.url){

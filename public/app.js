@@ -82,7 +82,7 @@ $(document).ready(function () {
 
         $("#savenote").attr("data-id", data._id)
 
-          /
+          
         if (data.note) {
 
           $("#titleinput").val(data.note.title);
@@ -130,6 +130,7 @@ $(document).ready(function () {
 
 
   $(document).on("click", "#scrape-button", function () {
+    
     $.ajax({
       method: "GET",
       url: "/scrape"
